@@ -8,7 +8,7 @@
   /* eslint-disable */
   import _ from 'lodash';
   import * as d3 from 'd3';
-  import Players from '../data/sample.json';
+  import Players from '../data/playerData.json';
 
   export default {
     props: ['playerId'],
@@ -16,7 +16,7 @@
       return {
         height: 0,
         width: 0,
-        margin: {top: 20, right: 20, bottom: 20, left: 20},
+        margin: {top: 30, right: 20, bottom: 20, left: 20},
         dataMapping: {
           "1st and <=5": {
             "start_angle": -Math.PI / 2,
@@ -96,7 +96,15 @@
             .endAngle((d) => this.dataMapping[d].end_angle)
           )
           .attr('stroke', 'black')
-          .attr('fill', (d) => colors(Players['players'][this.playerId][d]['completionPercentage']));
+          .attr('fill', (d) => colors(Players['players'][this.playerId][d]['CMP%']));
+        
+        let displayNames = this.playerId.split('-')
+        let name = displayNames[0] + " " + displayNames[1]
+        svg.append('text')
+          .attr('x', width / 2)
+          .attr('y', 3 * height / 4 + this.margin.top)
+          .attr('text-anchor', 'middle')
+          .text(name.toLocaleUpperCase())
       },
       getInnerDistance(downDist) {
         let base = 25  // make base size responsive
@@ -104,7 +112,7 @@
         if (downDist.includes("5")) {
           return base
         } else {
-          let yards = Players['players'][this.playerId][downDist]['previousYards']
+          // let yards = Players['players'][this.playerId][downDist]['previousYards']
           // return base + yards
           return superbase
         }
@@ -113,8 +121,8 @@
         let base = 25
         let superbase = 60
         let supersuperbase = 120
-        let yards = Players['players'][this.playerId][downDist]['yards']
-        let previousYards = Players['players'][this.playerId][downDist]['previousYards']
+        // let yards = Players['players'][this.playerId][downDist]['yards']
+        // let previousYards = Players['players'][this.playerId][downDist]['previousYards']
         if (downDist.includes("5")) {
           // return base + yards
           return superbase

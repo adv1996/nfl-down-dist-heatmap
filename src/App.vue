@@ -8,15 +8,16 @@
     </v-app-bar>
 
     <v-content>
-        <v-container>
+        <v-container fluid>
           <v-row
             no-gutters
           >
-            <v-col md="4">
-              <heat-map playerId="aaronRodgers12345"/>
-            </v-col>
-            <v-col md="4">
-              <heat-map playerId="aaronRodgers12346"/>
+            <v-col
+              md="2"
+              v-for="player in players"
+              :key="player"
+            >
+              <heat-map :playerId="player"/>
             </v-col>
           </v-row>
         </v-container>
@@ -26,14 +27,20 @@
 
 <script>
 import HeatMap from './components/HeatMap.vue';
+import Players from './data/playerData.json';
 
 export default {
   name: 'App',
   components: {
     HeatMap,
   },
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      players: Object.keys(Players["players"])
+    }
+  },
+  mounted () {
+    this.players = Object.keys(Players["players"]);
+  },
 };
 </script>
