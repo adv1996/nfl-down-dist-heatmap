@@ -1,0 +1,80 @@
+{
+  "players": {
+    "aaronRodgers12345": {
+      "1st and <=5": {
+        "completionPercentage": 50,
+        "yards": 75
+      },
+      "2nd and <=5": {
+        "completionPercentage": 90,
+        "yards": 10
+      },
+      "3rd and <=5": {
+        "completionPercentage": 10,
+        "yards": 75
+      },
+      "4th and <=5": {
+        "completionPercentage": 0,
+        "yards": 0
+      },
+      "1st and 6+": {
+        "completionPercentage": 85,
+        "yards": 100,
+        "previousYards": 75
+      },
+      "2nd and 6+": {
+        "completionPercentage": 100,
+        "yards": 30,
+        "previousYards": 10
+      },
+      "3rd and 6+": {
+        "completionPercentage": 35,
+        "yards": 224,
+        "previousYards": 75
+      },
+      "4th and 6+": {
+        "completionPercentage": 5,
+        "yards": 10,
+        "previousYards": 0
+      }
+    },
+    "aaronRodgers12346": {
+      "1st and <=5": {
+        "completionPercentage": 50,
+        "yards": 75
+      },
+      "2nd and <=5": {
+        "completionPercentage": 90,
+        "yards": 10
+      },
+      "3rd and <=5": {
+        "completionPercentage": 10,
+        "yards": 75
+      },
+      "4th and <=5": {
+        "completionPercentage": 0,
+        "yards": 0
+      },
+      "1st and 6+": {
+        "completionPercentage": 85,
+        "yards": 100,
+        "previousYards": 75
+      },
+      "2nd and 6+": {
+        "completionPercentage": 100,
+        "yards": 30,
+        "previousYards": 10
+      },
+      "3rd and 6+": {
+        "completionPercentage": 35,
+        "yards": 224,
+        "previousYards": 75
+      },
+      "4th and 6+": {
+        "completionPercentage": 5,
+        "yards": 10,
+        "previousYards": 0
+      }
+    }
+  }
+}
