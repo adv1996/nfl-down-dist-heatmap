@@ -1,7 +1,7 @@
 <template>
   <v-card
     tile
-    :height="height"
+    outlined
     class="pt-2"
   >
     <svg :id="playerId"/>
@@ -192,7 +192,7 @@
           })
           .attr('width', 50)
           .attr('height', 50)
-          .attr('x', (d) => width / 8 + 3)
+          .attr('x', (d) => width / 8 + 1)
           .attr('y', (d) => 24)
         let displayNames = this.playerId.split('-')
         let name = displayNames[0] + " " + displayNames[1]

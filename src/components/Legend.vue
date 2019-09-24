@@ -2,7 +2,6 @@
   <v-card
     class="pt-2"
     tile
-    :height="height"
   >
     <svg id="legend"/>
   </v-card>

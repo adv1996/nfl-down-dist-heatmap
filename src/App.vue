@@ -11,19 +11,19 @@
         <v-container fluid>
           <v-row
             no-gutters
-            align="center"
-            justify="center"
             class="grey lighten-5"
           >
             <v-col
               md="1"
+              offset-md="2"
             >
               <Legend/>
             </v-col>
             <v-col
-              md="1"
-              v-for="player in players"
+              v-for="(player, index) in players"
               :key="player.name"
+              md="1"
+              :offset-md="getBreakPoint(index)"
             >
               <heat-map :playerId="player.name" :stats="[player.yards, player.sacks, player.completions, player.attempts, player.tds, player.interceptions]" :sleeperId="player.sleeperId"/>
             </v-col>
@@ -86,6 +86,13 @@ export default {
       })
       return total
     },
+    getBreakPoint(count) {
+      let check = count + 1
+      if (check % 8 == 0 ) {
+        return "2"
+      }
+      return "0"
+    }
   },
 };
 </script>
