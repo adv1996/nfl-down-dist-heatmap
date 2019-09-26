@@ -1,12 +1,5 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>NFL Down and Distance HeatMap (Weeks 1 - 2)</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
-
     <v-content>
         <v-container fluid>
           <v-row
@@ -14,16 +7,14 @@
             class="grey lighten-5"
           >
             <v-col
-              md="1"
-              offset-md="2"
+              md="2"
             >
               <Legend/>
             </v-col>
             <v-col
-              v-for="(player, index) in players"
+              v-for="(player) in players"
               :key="player.name"
-              md="1"
-              :offset-md="getBreakPoint(index)"
+              md="2"
             >
               <heat-map :playerId="player.name" :stats="[player.yards, player.sacks, player.completions, player.attempts, player.tds, player.interceptions]" :sleeperId="player.sleeperId"/>
             </v-col>

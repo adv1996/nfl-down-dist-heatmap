@@ -8,10 +8,10 @@ def scrape(player, espn_id):
   player_url = "https://www.espn.com/nfl/player/splits/_/id/{1}/{0}".format(player, espn_id)
   page_response = requests.get(player_url, timeout=5)
   page_content = BeautifulSoup(page_response.content, "html.parser")
-  table_body = page_content.find('table', attrs={'class': "Table2__table-scroller Table2__right-aligned Table2__table"})
+  table_body = page_content.find('table', attrs={'class': "Table Table--align-right"})
   
   # get left side of table
-  left_headers = page_content.find('tbody', attrs={"class": "Table2__tbody"})
+  left_headers = page_content.find('tbody', attrs={"class": "Table__TBODY"})
   leftRows = left_headers.findAll('tr')
   leftdata = []
   for r in leftRows:
@@ -37,7 +37,7 @@ def scrape(player, espn_id):
       dataItems[headers[i]] = items[i].text
     
     data[leftdata[r-1][0]] = dataItems
-  filename = '/Users/advaith/Projects/Visualizations/down_dist/players/' + player + '-week1-2019.json'
+  filename = '/Users/advaithvenkatakrishnan/Projects/new_era/nfl-down-dist-heatmap/players/' + player + '-week3-2019.json'
   saveJson(filename, data)
 
 def saveJson(filename, data):
@@ -66,7 +66,7 @@ def assembleCleanedDataHeatMap():
     for p in range(0, len(data['rows'])):
       name = data['rows'][p][4] + "-" + data['rows'][p][3]
       espnid = data['rows'][p][0]
-      extractFile = '/Users/advaith/Projects/Visualizations/down_dist/players/' + name + '-'+ 'week1-2019.json'
+      extractFile = '/Users/advaithvenkatakrishnan/Projects/new_era/nfl-down-dist-heatmap/players/' + name + '-'+ 'week3-2019.json'
       playerFiles.append(extractFile)
   json_file.close()
   
@@ -104,5 +104,5 @@ def assembleCleanedDataHeatMap():
       playersJsonData["players"][data['rows'][f][4] + "-" + data['rows'][f][3] + "-"+ data['rows'][f][0]] = down_dist
     json_file.close()
   saveJson("playerData.json", playersJsonData)
-playersToScrape()
+scrape("kyle-allen", 3115293)
 assembleCleanedDataHeatMap()
